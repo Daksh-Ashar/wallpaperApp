@@ -1,33 +1,14 @@
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { View, Text } from 'react-native';
+import ParallaxScrollView from "@/components/ParallaxScrollView";
+import { Link } from "expo-router";
+import { Text, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const Tab = createMaterialTopTabNavigator();
+//https://cdn.pixabay.com/photo/2022/12/15/09/13/nature-7657230_1280.jpg
 
-export default function foryou() {
+export default function explore() {
     return (
-        <SafeAreaView>
-            <Tab.Navigator>
-                <Tab.Screen name="Library" component={HomeScreen} />
-                <Tab.Screen name="Liked" component={ProfileScreen} />
-                <Tab.Screen name="Suggested" component={ProfileScreen} />
-            </Tab.Navigator>
+        <SafeAreaView style={{flex:1}}>
+           <ParallaxScrollView headerBackgroundColor={{dark:"black",light:"white"}} headerImage={<Image style={{flex:1}} source={{uri:"https://cdn.pixabay.com/photo/2022/12/15/09/13/nature-7657230_1280.jpg"}}></Image>}></ParallaxScrollView>
         </SafeAreaView>
-    )
-}
-
-function HomeScreen() {
-    return (
-        <View>
-            <Text>Hello From Homescreen</Text>
-        </View>
-    )
-}
-
-function ProfileScreen() {
-    return (
-        <View>
-            <Text>Hello From ProfileScreen</Text>
-        </View>
     )
 }
